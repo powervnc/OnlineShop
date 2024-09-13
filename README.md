@@ -30,6 +30,6 @@ Fake data is used to simulate new products and supply information, leveraging th
 Technologies Used
 Frontend: React
 Backend: Node.js
-Database: [Specify your database, e.g., MongoDB, PostgreSQL]
-Authentication: [Specify your authentication method, e.g., JWT, OAuth]
+Database: MySql
+Authentication: JWT
 Data Simulation: Faker
