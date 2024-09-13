@@ -1,0 +1,20 @@
+
+.slot {
+    width: 80px; 
+    height: 80px; 
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px; 
+    font-weight: bold;
+    background-color: #f0f0f0; 
+    margin: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .slot p {
+    margin: 0;
+  }
+  

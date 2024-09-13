@@ -1,0 +1,53 @@
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+  /* body {
+  font-family: Raleway, sans-serif;
+  margin: 0;
+  font-size: 1.5em;
+  text-align: center;
+  background: #250148;
+  color: #fff4f4;
+}
+ */
+
+  /* button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+} */
+  .Game {
+    /* max-width: 860px; */
+    margin: 40px auto;
+    width: 90%;
+    max-width: 600px;
+    font-family: Raleway, sans-serif;
+    margin: 2px;
+    font-size: 1.5em;
+    text-align: center;
+    background: #250148;
+    color: #fff4f4;
+
+  }
+
+  /* button{
+  background: #250148;
+  color: #fff;
+  border: 2px solid #fff;
+}
+button:hover {
+  background: #c23866;
+  color: #fff;
+} */
+
+  .card-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+
+  }
