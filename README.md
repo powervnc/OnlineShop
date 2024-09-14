@@ -23,6 +23,8 @@ Points can be earned by playing games available on the site or can be bought wit
 
 ## Games
 * Hangman: A classic word-guessing game where users can earn points.
+* ![HangMan](https://github.com/user-attachments/assets/446559aa-d421-4e80-a66d-e9385130f8cf)
+
 * Roulette: A casino-style game offering a chance to win points.
 * Memory Game: Classic card game in which you have to find the identical pairs.
 
