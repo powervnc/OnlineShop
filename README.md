@@ -7,6 +7,9 @@ This is an online shopping platform developed using React and Node.js. The site 
 
 # User Roles:
 There are three types of user found on the site, each with their own set of rights
+- normal users
+- moderators
+- admin
 ## Normal Users
 * Can browse and purchase supplies using a shopping cart (see the points system).
 * The products can be filtered by:
