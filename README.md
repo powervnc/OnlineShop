@@ -63,7 +63,6 @@ Play in order to increase you points.
 ## PayPall
 ![Screenshot 2024-09-14 124953](https://github.com/user-attachments/assets/2d70dec6-0b7e-4b39-8d4f-928272fd1dbc)
 
-# Final look
 
 
 
