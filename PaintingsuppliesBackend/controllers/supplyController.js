@@ -8,7 +8,7 @@ const Users = db.users;
 const utils = require("../utils");
 const validatorSupply = utils.validators.validateSupply;
 const upload = require("./multerConfig");
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 ///filtering based on selected producer
 const getSuppliesPaged = async (page, producer, load_5, category) => {
@@ -100,7 +100,6 @@ const addSupply = async (req, res) => {
       idProducer: idProducer,
       nrOfSupplies: supply.nrOfSupplies,
       categorySupply: supply.categorySupply,
-      
     };
 
     const createdSupply = await Supply.create(newSupply);
@@ -174,7 +173,6 @@ const updateSupply = async (req, res) => {
     nrOfSupplies,
     categorySupply,
   };
-
 
   console.log("Supply to update:", supply);
 
@@ -272,21 +270,23 @@ const placeOrders = async (req, response) => {
   let message = "";
   let totalSumSpent = 0;
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'marinamariaemiliana@gmail.com', 
-      pass: "uowi zaml lfqj aewp "
-    }
+      user: "marinamariaemiliana@gmail.com",
+      pass: "uowi zaml lfqj aewp ",
+    },
   });
   let mailOptions;
   try {
     const user = req.user;
-    let existingUser = await Users.findOne({ where: { username: user.username } });
+    let existingUser = await Users.findOne({
+      where: { username: user.username },
+    });
     mailOptions = {
-      from: 'marinamariaemiliana@gmail.com',
+      from: "marinamariaemiliana@gmail.com",
       to: existingUser.email,
-      subject: 'Processed Purchase',
-      text: ''
+      subject: "Processed Purchase",
+      text: "",
     };
     console.log("user in place orders:", user);
     const idUser = user.username;
@@ -333,7 +333,13 @@ const placeOrders = async (req, response) => {
               where: { idSupply: supply.idSupply },
             }
           );
-          mailOptions.text=mailOptions.text+  `\nBought supply ${supply.nameSupply} ${quantity}-times in value of ${priceSupply * quantity} points (${priceSupply * quantity*1.8} dollars)`
+          mailOptions.text =
+            mailOptions.text +
+            `\nBought supply ${
+              supply.nameSupply
+            } ${quantity}-times in value of ${priceSupply * quantity} points (${
+              priceSupply * quantity * 1.8
+            } dollars)`;
           console.log("!!!POINTS:", points);
           Users.update(
             { points: points - priceSupply * quantity },
@@ -349,36 +355,33 @@ const placeOrders = async (req, response) => {
     if (message === "") {
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          console.error('Error sending email:', error);
-         
+          console.error("Error sending email:", error);
+        } else {
+          console.log("Email sent: " + info.response);
         }
-        console.log('Email sent: ' + info.response);
-        ;
       });
       return response.status(200).json({
         message: "All orders have been placed with success",
         totalSumSpent: totalSumSpent,
       });
-    } else{
+    } else {
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          console.error('Error sending email:', error);
-          
+          console.error("Error sending email:", error);
         }
-        console.log('Email sent: ' + info.response);
-        ;
+        else{
+        console.log("Email sent: " + info.response);
+        }
       });
       return response
         .status(400)
         .json({ message: message, totalSumSpent: totalSumSpent });
     }
   } catch (error) {
-    return response
-      .status(500)
-      .json({
-        message: "Internal sever error:" + error.message,
-        totalSumSpent: totalSumSpent,
-      });
+    return response.status(500).json({
+      message: "Internal sever error:" + error.message,
+      totalSumSpent: totalSumSpent,
+    });
   }
 };
 
